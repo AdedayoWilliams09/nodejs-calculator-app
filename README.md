@@ -57,7 +57,7 @@ Below is the rough sketch that outlines the design and flow of the calculator ap
 1. Clone this repository:
 
    ```bash
-   
+   git clone https://github.com/AdedayoWilliams09/nodejs-calculator-app
    cd nodejs-calculator-app
    ```
 
