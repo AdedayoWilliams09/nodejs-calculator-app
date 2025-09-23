@@ -3,24 +3,31 @@
 This is a simple **Node.js Calculator App** that demonstrates the use of:
 
 * **Built-in Node.js modules** (`fs`, `readline`)
-* **Third-party module** (`chalk` for colorful output)
+* **Third-party modules** (`chalk` for colorful output, `mathjs` for advanced math operations)
 * **Custom modules** (addition, subtraction, multiplication, division, modulus, power)
 
-It includes an **interactive text-based menu** that allows users to perform different calculations directly in the terminal.
+It combines **two modes** in one app:
+1. **Menu-driven mode** → Choose an operation (add, subtract, multiply, etc.) and enter two numbers.
+2. **Free Expression mode** → Type any math expression (like `sqrt(25) + 3 * 4`) and get instant results using `mathjs`.
+
 
 ---
 
 ## ✨ Features
 
-* ✅ Addition
-* ✅ Subtraction
-* ✅ Multiplication
-* ✅ Division (with divide-by-zero error handling)
-* ✅ Modulus (remainder)
-* ✅ Power (exponentiation)
-* ✅ Results are saved to a `calculations.txt` file
-* ✅ Interactive CLI menu using Node.js `readline`
-* ✅ Colorful output using `chalk`
+
+* ✅ **Menu-driven operations** (using custom modules):
+  * Addition
+  * Subtraction
+  * Multiplication
+  * Division (with divide-by-zero handling)
+  * Modulus
+  * Power (exponentiation)
+* ✅ **Expression mode** using `mathjs`:
+  * Handles advanced math like `sqrt()`, `pow()`, `sin()`, `log()`, factorials, etc.
+  * Supports parentheses and operator precedence
+* ✅ Results saved to `calculations.txt` (JSON format)
+* ✅ Colorful terminal output with `chalk`
 * ✅ Displays **registration number** at startup
 
 ---
@@ -30,7 +37,7 @@ It includes an **interactive text-based menu** that allows users to perform diff
 ```
 calculator-app/
 │
-├── app.js          # Main entry point (interactive menu)
+├── index.js          # Main entry point (interactive menu)
 ├── add.js          # Custom module 1
 ├── subtract.js     # Custom module 2
 ├── multiply.js     # Custom module 3
@@ -95,14 +102,44 @@ Choose an operation:
 4. Division (/)
 5. Modulus (%)
 6. Power (^)
-7. Exit
+7. Free Expression Mode (mathjs)
+8. Exit
 
-Enter your choice (1-7): 3
+Enter your choice (1-8): 3
 Enter first number: 8
 Enter second number: 7
 
 ✖️  8 * 7 = 56
+📁 Result saved to calculations.txt
+
 ```
+
+## Expression Mode
+Enter your choice (1-8): 7
+
+Enter a math expression (or type 'exit' to go back): sqrt(16)
+✅ Result: 4
+📁 Result saved to calculations.txt
+
+Enter a math expression (or type 'exit' to go back): (5+3)*2
+✅ Result: 16
+
+Enter a math expression (or type 'exit' to go back): exit
+🔙 Returning to main menu...
+
+## 📚 MathJS Cheat Sheet (Expression Mode Examples)
+| Expression      | Description       | Result |
+| --------------- | ----------------- | ------ |
+| `sqrt(25)`      | Square root       | `5`    |
+| `pow(3, 4)`     | Power (3^4)       | `81`   |
+| `(10 / 2) + 5`  | Normal arithmetic | `10`   |
+| `sin(pi / 2)`   | Trigonometry      | `1`    |
+| `log(100, 10)`  | Log base 10       | `2`    |
+| `5!`            | Factorial         | `120`  |
+| `mean([2,4,6])` | Average of list   | `4`    |
+| `abs(-42)`      | Absolute value    | `42`   |
+
+
 
 ---
 
@@ -110,6 +147,7 @@ Enter second number: 7
 
 * **Node.js** (ES Module format)
 * **chalk** (third-party npm module)
+* **mathjs** (for advanced math calculations)
 * **fs** and **readline** (built-in modules)
 
 ---
@@ -117,7 +155,7 @@ Enter second number: 7
 ## 📝 Notes
 
 * Ensure you are running **Node.js v14+** (supports ES modules).
-* Results of each calculation are appended to `calculations.txt`.
+* Results of each calculation are appended to `calculations.txt` as JSON.
 * Exit the app anytime by selecting **option 7**.
 
 ---
